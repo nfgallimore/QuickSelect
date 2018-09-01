@@ -1,28 +1,24 @@
 #############################################################################
-# FindKthLargestNumber
-#
+# QuickSelect
+# Author Nick Gallimore
+OBJS=QuickSelect.o
+EXE=QuickSelect
 
-EXE=FindKthLargestNumber
-
-GCC= g++
+GCC=g++
 CFLAGS=-Wall -std=c++17
 
 .PHONY : all
-all : $(EXE)
+all: $(EXE)
 
-# StreamingActivity
+# QuickSelect
 .PHONY : run
-run : FindKthLargestNumber
-	@./FindKthLargestNumber
+run : QuickSelect
+	@./QuickSelect
 
-FindKthLargestNumber:
-	$(GCC) FindKthLargestNumber.cpp $(CFLAGS) -o FindKthLargestNumber
+QuickSelect : QuickSelect.cpp
+	$(GCC) $^ $(CFLAGS) -o $@
 
 # clean
 .PHONY : clean
-clean : cleanobjects
+clean :
 	rm -f $(EXE)
-
-.PHONY : cleanobjects
-cleanobjects :
-	rm -f $(OBJS) $(TOBJS)
